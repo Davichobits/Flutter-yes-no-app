@@ -10,10 +10,33 @@ class ChatScreen extends StatelessWidget {
           padding: EdgeInsets.all(4.0),
           child: CircleAvatar(
             backgroundImage: NetworkImage(
-                'https://st5.depositphotos.com/79151800/65507/i/450/depositphotos_655079558-stock-photo-cults-madeline-folin-brian-oblivion.jpg'),
+                'https://s2.r29static.com/bin/entry/db0/1,0,279,335/720x864,85/62273/image.webp'),
           ),
         ),
-        title: const Text('Mi amor ❤️'),
+        title: const Text('Madeline Follin'),
+      ),
+      body: _ChatView(),
+    );
+  }
+}
+
+class _ChatView extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return SafeArea(
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 10),
+        child: Column(
+          children: [
+            Expanded(
+                child: ListView.builder(
+                    itemCount: 100,
+                    itemBuilder: (context, index) {
+                      return Text('Indice $index');
+                    })),
+            Text('Mundo'),
+          ],
+        ),
       ),
     );
   }
