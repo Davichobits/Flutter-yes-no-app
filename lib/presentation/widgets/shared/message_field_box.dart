@@ -8,18 +8,14 @@ class MessageFieldBox extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final textController = TextEditingController();
-
     final FocusNode focusNode = FocusNode();
 
-    final colors = Theme.of(context).colorScheme;
-
     final outLineInputBorder = UnderlineInputBorder(
-      borderSide: BorderSide(color: colors.primary),
-      borderRadius: BorderRadius.circular(20),
-    );
+        borderSide: const BorderSide(color: Colors.transparent),
+        borderRadius: BorderRadius.circular(8));
 
     final inputDecoration = InputDecoration(
-      hintText: 'End your message with a "?"',
+      // hintText: 'End your message with a "?"',
       filled: true,
       enabledBorder: outLineInputBorder,
       focusedBorder: outLineInputBorder,
@@ -27,8 +23,8 @@ class MessageFieldBox extends StatelessWidget {
         icon: const Icon(Icons.send_outlined),
         onPressed: () {
           final textValue = textController.value.text;
-          onValue(textValue);
           textController.clear();
+          onValue(textValue);
         },
       ),
     );
@@ -41,9 +37,9 @@ class MessageFieldBox extends StatelessWidget {
       controller: textController,
       decoration: inputDecoration,
       onFieldSubmitted: (value) {
-        onValue(value);
         textController.clear();
         focusNode.requestFocus();
+        onValue(value);
       },
     );
   }
